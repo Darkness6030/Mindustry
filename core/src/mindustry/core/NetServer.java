@@ -250,7 +250,7 @@ public class NetServer implements ApplicationListener{
 
             String ip = con.address;
 
-            admins.updatePlayerJoined(uuid, ip, packet.name);
+            admins.updatePlayerJoined(uuid, ip, packet.name, packet.locale);
 
             if(packet.version != Version.build && Version.build != -1 && packet.version != -1){
                 con.kick(packet.version > Version.build ? KickReason.serverOutdated : KickReason.clientOutdated);
