@@ -190,10 +190,11 @@ public class Administration{
     }
 
     /** Call when a player joins to update their information here. */
-    public void updatePlayerJoined(String id, String ip, String name){
+    public void updatePlayerJoined(String id, String ip, String name, String locale){
         PlayerInfo info = getCreateInfo(id);
         info.lastName = name;
         info.lastIP = ip;
+        info.lastLocale = locale;
         info.timesJoined++;
         if(!info.names.contains(name, false)) info.names.add(name);
         if(!info.ips.contains(ip, false)) info.ips.add(ip);
@@ -581,7 +582,7 @@ public class Administration{
 
     public static class PlayerInfo{
         public String id;
-        public String lastName = "<unknown>", lastIP = "<unknown>";
+        public String lastName = "<unknown>", lastIP = "<unknown>", lastLocale = "en";
         public Seq<String> ips = new Seq<>();
         public Seq<String> names = new Seq<>();
         public String adminUsid;
